@@ -31,6 +31,15 @@ export default function TaskList() {
                 }
             </div>
             <div className="task-list__tasks">
+                <div className="task-list__tasks__top">
+                    <h3>Task List</h3>
+                    <div className="task-list__tasks__top__right">
+                        <button className="task-list__tasks__top__right__add">Add</button>
+                        <button className="task-list__tasks__top__right__selection">Select</button>
+                    </div>
+                </div>
+                <Task />
+                <Task />
                 <Task />
             </div>
             <div className="task-list__right" id="resize">
