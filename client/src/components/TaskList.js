@@ -1,17 +1,21 @@
 import React, {useEffect, useState} from "react";
 import {Categories} from "../utils/taskCategories";
 import Task from "./Task";
+import '../styles/componentsStyles/TaskList.css'
+import CreateTask from "./modals/CreateTask";
+import {fetchTasks} from "../http/taskApi";
+import {observer} from "mobx-react-lite";
 
-export default function TaskList() {
-
+const TaskList = observer(() => {
     const [selected, setSelected] = useState("")
+    const [addModalVisible, setAddModalVisible] = useState(false)
+    const [tasks, setTasks] = useState([])
 
-    // window.addEventListener('resize', () => {
-    //     let element = document.getElementById("resize")
-    //     if (element.width < "100px")
-    //         element.style.display = ""
-    //     console.log(element)
-    // })
+    useEffect(() => {
+        fetchTasks(3)
+            .then(response => response.json())
+            .then(json => setTasks(json.rows))
+    }, [addModalVisible]);
 
     return (
         <tasklist className="task-list">
@@ -34,22 +38,34 @@ export default function TaskList() {
                 <div className="task-list__tasks__top">
                     <h3>Task List</h3>
                     <div className="task-list__tasks__top__right">
-                        <button className="task-list__tasks__top__right__add">Add</button>
-                        <button className="task-list__tasks__top__right__selection">Select</button>
+                        <button
+                            className="task-list__tasks__top__right__add"
+                            onClick={() => setAddModalVisible(true)}
+                        >
+                            Add
+                        </button>
+                        <button
+                            className="task-list__tasks__top__right__selection"
+                        >
+                            Select
+                        </button>
                     </div>
                 </div>
-                <Task />
-                <Task />
-                <Task />
+                {tasks.map(item => (
+                    <Task id={item.id} name={item.name} description={item.description} date={item.deadline} />
+                ))}
             </div>
             <div className="task-list__right" id="resize">
                 <div className="task-list__right__top">
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic rerum sed sunt?</p>
             </div>
+            <CreateTask show={addModalVisible} onHide={() => setAddModalVisible(false)} />
         </tasklist>
     )
-}
+})
+
+export default TaskList
 
 const Category = (props) => {
     const {item, ifSelected} = props

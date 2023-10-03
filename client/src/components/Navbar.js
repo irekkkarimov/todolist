@@ -1,4 +1,5 @@
 import dots_pic from "../assets/9dots.svg.png"
+import '../styles/componentsStyles/Navbar.css'
 
 export default function Navbar() {
     return (

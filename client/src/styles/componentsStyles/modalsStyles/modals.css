@@ -1,0 +1,141 @@
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.error {
+    border: 2px solid #dc3545;
+    width: 100px;
+}
+
+.btn-modal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+}
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+.modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 500px;
+}
+
+.modal-content > h2 {
+    margin-bottom: 10px;
+}
+
+.modal-hr {
+    height: 2px;
+    background-color: #d5d1d1;
+    margin-left: -28px;
+    margin-right: -28px;
+    margin-bottom: 5px;
+}
+
+.modal-buttons {
+    position: absolute;
+    bottom: 14px;
+    right: 28px;
+}
+
+.modal-buttons > button {
+    border-radius: 10px;
+    border: none;
+    color: #f1f1f1;
+    font-weight: 300;
+    background-color: #F689AA;
+    transition: 0.15s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.modal-buttons > button:hover {
+    transform: scale(1.15);
+    transition: 0.15s;
+}
+
+.close-modal {
+    bottom: 20px;
+    right: 20px;
+    padding: 3px 7px;
+    font-size: 25px;
+}
+
+.close-modal:hover {
+    background-color: #dc3545;
+}
+
+.submit-modal {
+    bottom: 20px;
+    right: 20px;
+    padding: 3px 7px;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+.submit-modal:hover {
+    background-color: #28a745;
+}
+
+.createTask__form__task-name-input {
+    width: 100%;
+}
+
+.createTask__form__task-description-input {
+    width: 100%;
+    min-height: 160px;
+    max-height: 250px;
+    resize: vertical;
+    overflow-y: hidden;
+}
+
+.createTask__form__task-date-input {
+    color: #9f9c9c;
+}
+
+.createTask__form__task-date-input:valid {
+    color: black;
+}
+
+.createTask__form__task-category-select {
+    color: #9f9c9c;
+    margin-bottom: 10px;
+}
+
+.createTask__form__task-category-select:valid {
+    color: black;
+}
+
+.createTask__form__task-category-select__option {
+    color: black;
+}
+
+.modal__input {
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: normal;
+    border-radius: 15px;
+    border: 2px solid lightgrey;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}

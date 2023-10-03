@@ -1,0 +1,65 @@
+.navbar {
+    flex-direction: column;
+    height: 60px;
+    background-color: #F689AA;
+    align-items: end;
+
+}
+
+.navbar__content {
+    display: flex;
+    max-width: 900px;
+    height: inherit;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar__content__heading {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.navbar__content__heading > h1 {
+    font-size: 32px;
+}
+
+.navbar__content__clickable {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__content__clickable__dots {
+    width: 25px;
+    height: 25px;
+    margin-right: 14px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.navbar__content__clickable__dots:hover {
+    transform: scale(1.2);
+    transition: 0.1s;
+}
+
+.navbar__content__clickable__dots > img {
+    width: inherit;
+}
+
+.navbar__content__clickable__profile-pic {
+    width: 40px;
+    height: 40px;
+    background-color: #a2245b;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.navbar__content__clickable__profile-pic:hover {
+    transform: scale(1.2);
+    transition: 0.1s;
+}

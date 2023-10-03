@@ -1,0 +1,29 @@
+.task {
+    margin: 0 10px 20px 10px;
+    padding: 10px;
+    background-color: #E3D7D7;
+    border-radius: 12px;
+}
+
+.task > p, .task__header__right > p {
+    font-size: 14px;
+    color: #5e5c5c;
+}
+
+.task > p {
+    max-width: 95%;
+}
+
+.task__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task__header__right {
+    display: flex;
+    justify-content: center;
+    max-width: 120px;
+    background-color: rgba(187, 89, 89, 0.15);
+    border-radius: 100px;
+    padding: 0 5px 0 5px;
+}

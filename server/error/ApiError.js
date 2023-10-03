@@ -5,15 +5,15 @@ class ApiError extends Error {
         this.message = message
     }
 
-    static badRequest(messgage) {
+    static badRequest(message) {
         return new ApiError(404, message)
     }
 
-    static internal(messgage) {
+    static internal(message) {
         return new ApiError(500, message)
     }
 
-    static forbidden(messgage) {
+    static forbidden(message) {
         return new ApiError(403, message)
     }
 }
