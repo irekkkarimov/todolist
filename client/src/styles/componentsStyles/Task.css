@@ -1,5 +1,5 @@
 .task {
-    margin: 0 10px 20px 10px;
+    margin: 10px 10px 10px 10px;
     padding: 10px;
     background-color: #E3D7D7;
     border-radius: 12px;
@@ -8,6 +8,11 @@
 .task > p, .task__header__right > p {
     font-size: 14px;
     color: #5e5c5c;
+}
+
+.task__header__right > p {
+    color: #efefef;
+    text-shadow: 0.5px 0.2px #000000
 }
 
 .task > p {

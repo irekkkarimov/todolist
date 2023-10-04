@@ -38,12 +38,24 @@
 .task-list__tasks {
     display: flex;
     flex: 1;
+    height: 800px;
     flex-direction: column;
-    height: 1200px;
     margin: 0 20px 0 20px;
     padding-top: 10px;
     background-color: #F6EBEB;
     border-radius: 12px;
+}
+
+.task-list__tasks__content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.task-list__tasks__content::-webkit-scrollbar {
+    display: none;
 }
 
 .task-list__right {
@@ -80,7 +92,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: -10px 0 10px 0;
+    margin: -10px 0 0 0;
     padding: 0 10px 0 10px;
 }
 

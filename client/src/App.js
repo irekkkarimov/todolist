@@ -1,12 +1,13 @@
+import {BrowserRouter} from 'react-router-dom'
 import Navbar from './components/Navbar'
-import TaskList from "./pages/TaskList";
+import AppRouter from "./components/AppRouter";
 
 function App() {
     return (
-        <app>
+        <BrowserRouter>
             <Navbar />
-            <TaskList />
-        </app>
+            <AppRouter />
+        </BrowserRouter>
     );
 }
 

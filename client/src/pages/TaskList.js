@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Categories} from "../utils/taskCategories";
 import Task from "../components/Task";
-import '../styles/componentsStyles/TaskList.css'
+import '../styles/pagesStyles/TaskList.css'
 import CreateTask from "../components/modals/CreateTask";
 import {fetchTasks} from "../http/taskApi";
 import {observer} from "mobx-react-lite";
 
-const TaskList = observer(() => {
+const TaskList = () => {
     const [selected, setSelected] = useState("")
     const [addModalVisible, setAddModalVisible] = useState(false)
     const [tasks, setTasks] = useState([])
@@ -51,9 +51,11 @@ const TaskList = observer(() => {
                         </button>
                     </div>
                 </div>
-                {tasks.map(item => (
-                    <Task id={item.id} name={item.name} description={item.description} date={item.deadline} />
-                ))}
+                <div className="task-list__tasks__content">
+                    {tasks.map(item => (
+                        <Task id={item.id} name={item.name} description={item.description} date={item.deadline} />
+                    ))}
+                </div>
             </div>
             <div className="task-list__right" id="resize">
                 <div className="task-list__right__top">
@@ -63,7 +65,7 @@ const TaskList = observer(() => {
             <CreateTask show={addModalVisible} onHide={() => setAddModalVisible(false)} />
         </tasklist>
     )
-})
+}
 
 export default TaskList
 

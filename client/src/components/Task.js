@@ -14,54 +14,30 @@ const Task = (props) => {
                 setDivStyle({
                     backgroundColor: "#de492f"
                 })
-                setTextStyle({
-                    color: "#efefef",
-                    textShadow: "0.5px 0.2px #000000"
-                })
                 break
             case 'years':
                 setDivStyle({
                     backgroundColor: "#4aba8a"
-                })
-                setTextStyle({
-                    color: "#efefef",
-                    textShadow: "0.5px 0.2px #000000"
                 })
                 break
             case 'months':
                 setDivStyle({
                     backgroundColor: "#4aba75"
                 })
-                setTextStyle({
-                    color: "#efefef",
-                    textShadow: "0.5px 0.2px #000000"
-                })
                 break
             case 'days':
                 setDivStyle({
                     backgroundColor: "#59ab3c"
-                })
-                setTextStyle({
-                    color: "#efefef",
-                    textShadow: "0.5px 0.2px #000000"
                 })
                 break
             case 'hours':
                 setDivStyle({
                     backgroundColor: "#e0be60"
                 })
-                setTextStyle({
-                    color: "#efefef",
-                    textShadow: "0.5px 0.2px #000000"
-                })
                 break
             case 'minutes':
                 setDivStyle({
                     backgroundColor: "#db6d5a"
-                })
-                setTextStyle({
-                    color: "#efefef",
-                    textShadow: "0.5px 0.2px #000000"
                 })
                 break
         }
@@ -108,6 +84,8 @@ function calculateDeadline(dateAsString, name) {
     if (months > 0)
         return [`${months} months left`, 'months']
     if (days > 0)
+        if (days === 1)
+            return ['1 day left', 'days']
         return [`${days} days left`, 'days']
     if (hours > 0)
         return [`${hours} hours left`, 'hours']
