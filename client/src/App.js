@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar'
-import TaskList from "./components/TaskList";
+import TaskList from "./pages/TaskList";
 
 function App() {
     return (

@@ -138,4 +138,5 @@ body.active-modal {
     border: 2px solid lightgrey;
     margin-top: 5px;
     margin-bottom: 20px;
+    padding-left: 5px;
 }

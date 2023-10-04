@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Categories} from "../utils/taskCategories";
-import Task from "./Task";
+import Task from "../components/Task";
 import '../styles/componentsStyles/TaskList.css'
-import CreateTask from "./modals/CreateTask";
+import CreateTask from "../components/modals/CreateTask";
 import {fetchTasks} from "../http/taskApi";
 import {observer} from "mobx-react-lite";
 
