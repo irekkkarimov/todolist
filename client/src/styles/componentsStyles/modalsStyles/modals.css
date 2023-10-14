@@ -140,3 +140,7 @@ body.active-modal {
     margin-bottom: 20px;
     padding-left: 5px;
 }
+
+.editProfile__form__profile-password-input {
+    margin-bottom: 30px;
+}

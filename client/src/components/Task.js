@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import '../styles/componentsStyles/Task.css'
 
 const Task = (props) => {
-    const {name, description, date} = props;
+    const {name, description, date, show} = props;
     const [calculatedDate, expiration]  = calculateDeadline(date, name)
     const [divStyle, setDivStyle] = useState({})
     const [textStyle, setTextStyle] = useState({})
@@ -48,7 +48,7 @@ const Task = (props) => {
     }, []);
 
     return (
-        <task className="task">
+        show && <task className="task">
             <div className="task__header">
                 <h4 className="task__header__name">{name}</h4>
                 <div className="task__header__right" style={divStyle}>

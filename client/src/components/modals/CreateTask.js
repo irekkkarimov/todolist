@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import '../../styles/componentsStyles/modalsStyles/modals.css'
-import {createTask} from "../../http/taskApi";
+import {createTask} from "../../http/taskApi"
+import {Categories} from "../../utils/taskCategories";
 
 
 export default function CreateTask({show, onHide}) {
     const [taskName, setTaskName] = useState("")
     const [taskDescription, setTaskDescription] = useState("")
     const [taskDeadline, setTaskDeadline] = useState("")
-    const [taskCategory, setTaskCategory] = useState(0)
-
-    let categories = ["Work", "Home", "Work", "Home", "Work"]
+    const [taskCategory, setTaskCategory] = useState(5)
 
 
     function submitTaskForm(e) {
@@ -124,8 +123,8 @@ export default function CreateTask({show, onHide}) {
                                 className="createTask__form__task-category-select__option_default"
                                 disabled selected
                             >---</option>
-                            {categories.map((item, index) => (
-                                <option value={index + 1} className="createTask__form__task-category-select__option">{item}</option>
+                            {Categories.map(item => (
+                                <option value={item.id} className="createTask__form__task-category-select__option">{item.name}</option>
                             ))}
                         </select>
                     </form>

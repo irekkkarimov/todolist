@@ -1,0 +1,48 @@
+.profilePersonal {
+    display: flex;
+    align-items: center;
+}
+
+.profilePersonal {
+    margin: 20px 40px 20px 40px;
+}
+
+.profilePersonal__picture {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    border-radius: 50px;
+}
+
+.profile__pic {
+    border-radius: 50px;
+}
+
+.profilePersonal__data {
+    width: 100%;
+    margin-left: 100px;
+}
+
+.profilePersonal__data > h3 {
+    margin-left: 2px;
+}
+
+.profilePersonal__data > div {
+    width: 80%;
+    padding: 5px 0 5px 5px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: #f3f3f3;
+}
+
+.profilePersonal__data > h3 {
+    color: #5e5c5c;
+    font-weight: 400;
+}
+
+.profilePersonal__data > div > h4 {
+    font-size: 15px;
+    font-weight: 700;
+}

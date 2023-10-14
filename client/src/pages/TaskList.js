@@ -7,7 +7,7 @@ import {fetchTasks} from "../http/taskApi";
 import {observer} from "mobx-react-lite";
 
 const TaskList = () => {
-    const [selected, setSelected] = useState("")
+    const [selected, setSelected] = useState(-1)
     const [addModalVisible, setAddModalVisible] = useState(false)
     const [tasks, setTasks] = useState([])
 
@@ -20,15 +20,24 @@ const TaskList = () => {
     return (
         <tasklist className="task-list">
             <div className="task-list__categories">
+                <Category
+                    className="task-list__categories__category"
+                    key={-1}
+                    item={{name: 'all', url: 'all_icon.png'}}
+                    ifSelected={-1 === selected}
+                    onClick={() => {
+                        setSelected(-1)
+                    }}
+                />
                 {
                     Categories.map(item =>
                         <Category
                             className="task-list__categories__category"
-                            key={item.name}
+                            key={item.id}
                             item={item}
-                            ifSelected={item.name === selected}
+                            ifSelected={item.id === selected}
                             onClick={() => {
-                                setSelected(item.name)
+                                setSelected(item.id)
                             }}
                         />
                     )
@@ -53,7 +62,7 @@ const TaskList = () => {
                 </div>
                 <div className="task-list__tasks__content">
                     {tasks.map(item => (
-                        <Task id={item.id} name={item.name} description={item.description} date={item.deadline} />
+                        <Task id={item.id} name={item.name} description={item.description} date={item.deadline} show={selected === -1 ? true : item.category === selected} />
                     ))}
                 </div>
             </div>
