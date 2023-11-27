@@ -18,7 +18,7 @@ const ProfilePersonal = ({name, email, password}) => {
                 </div>
                 <h3>Password:</h3>
                 <div className="profilePersonal__data__password">
-                    <h4>{password}</h4>
+                    <h4>********</h4>
                 </div>
             </div>
         </profilePersonal>

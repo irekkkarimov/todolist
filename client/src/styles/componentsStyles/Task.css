@@ -1,4 +1,6 @@
 .task {
+    display: flex;
+    justify-content: space-between;
     margin: 10px 10px 10px 10px;
     padding: 10px;
     background-color: #E3D7D7;
@@ -19,16 +21,50 @@
     max-width: 95%;
 }
 
+.task__left {
+
+}
+
 .task__header {
     display: flex;
     justify-content: space-between;
 }
 
-.task__header__right {
+.task__right {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    height: fit-content;
     max-width: 120px;
+}
+
+.task__right__deadline {
     background-color: rgba(187, 89, 89, 0.15);
     border-radius: 100px;
     padding: 0 5px 0 5px;
+    margin-bottom: 5px;
+}
+
+.task__right__deadline > p {
+    color: #ffffff;
+    text-shadow: 0.5px 0.2px #000000;
+    letter-spacing: 0.3px;
+}
+
+.delete-button {
+    font-family: 'Roboto Slab', serif;
+    color: #484343;
+    height: 25px;
+    background-color: #F6EBEB;
+    margin-left: 10px;
+    padding: 0 8px 0 8px;
+    border-radius: 100px;
+    border: 1px solid #cbc1c1;
+    transition: 0.1s;
+}
+
+.delete-button:hover {
+    transform: scale(1.2);
+    background-color: #ecdfdf;
+    transition: 0.1s;
 }

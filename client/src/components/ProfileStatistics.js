@@ -16,7 +16,7 @@ const ProfileStatistics = () => {
         let tasks = []
         fetchTasks(3)
             .then(response => response.json())
-            .then(json => tasks = json.rows)
+            .then(json => tasks = json)
             .then(() => {
                 let categoriesForTaskCountObject = {}
                 for (let i = 0; i < Categories.length; i++) {

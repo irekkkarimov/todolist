@@ -17,11 +17,10 @@ export default function CreateTask({show, onHide}) {
         if (taskDeadline === "") { document.getElementById("task-form-deadline").style = "border: 2px solid #dc3545; background-color: #f8d7da"; return; }
 
         let newTask = {
-            "user_id": 3,
             "name": taskName,
             "description": taskDescription,
             "category": taskCategory,
-            "deadline": taskDeadline
+            "deadline": taskDeadline.toString()
         }
 
         createTask(newTask).then(() => {

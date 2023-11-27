@@ -1,43 +1,25 @@
 import jwt_decode from "jwt-decode"
+import {$authHost, $host} from "./index";
 
 export const registration = async (user) => {
-    let body = JSON.stringify(user)
-    const headers = {
-        'Content-Type': 'application/json',
-        'Content-Length': body.length.toString()
-    };
-
-    await fetch("http://localhost:5000/api/user/registation", {
-        method: 'POST',
-        headers: headers,
-        body: body
-    }).then(data => localStorage.setItem('token', data.token))
+    const {data} = await $host.post("api/user/registation", user)
+    localStorage.setItem('token', data.token)
+    return jwt_decode(data.token)
 }
 
 export const login = async (user) => {
-    let body = JSON.stringify(user)
-    const headers = {
-        'Content-Type': 'application/json',
-        'Content-Length': body.length.toString()
-    };
-
-    await fetch("http://localhost:5000/api/user/login", {
-        method: 'POST',
-        headers: headers,
-        body: body
-    }).then(data => localStorage.setItem('token', data.token))
+    const {data} = await $host.post("api/user/login", user)
+    localStorage.setItem('token', data.token)
 }
 
 export const check = async () => {
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-    };
+    const {data} = await $authHost.get("api/user/auth")
+    localStorage.setItem('token', data.token)
+    return jwt_decode(data.token);
+}
 
-    let data = await fetch("http://localhost:5000/api/user/auth", {
-        method: 'GET',
-        headers: headers
-    })
+export const edit = async (changedData) => {
+    const {data} = await $authHost.put("api/user/edit", changedData)
     localStorage.setItem('token', data.token)
     return jwt_decode(data.token)
 }

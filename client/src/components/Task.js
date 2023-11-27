@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import '../styles/componentsStyles/Task.css'
+import {deleteTask} from "../http/taskApi";
+import alert from "bootstrap/js/src/alert";
 
 const Task = (props) => {
-    const {name, description, date, show} = props;
+    const {id, name, description, date, show} = props;
     const [calculatedDate, expiration]  = calculateDeadline(date, name)
     const [divStyle, setDivStyle] = useState({})
     const [textStyle, setTextStyle] = useState({})
@@ -43,19 +45,34 @@ const Task = (props) => {
         }
     }
 
+    function deleteTaskButton(id) {
+        deleteTask(id).then(r => window.alert("Successfully deleted"))
+    }
+
     useEffect(() => {
         colorTheDate()
     }, []);
 
     return (
         show && <task className="task">
-            <div className="task__header">
-                <h4 className="task__header__name">{name}</h4>
-                <div className="task__header__right" style={divStyle}>
+            <div className="task__left">
+                <div className="task__header">
+                    <h4 className="task__header__name">{name}</h4>
+                </div>
+                <p className="task__description">{description}</p>
+            </div>
+            <div className="task__right">
+                <div className="task__right__deadline"
+                style={divStyle}>
                     <p style={textStyle}>{calculatedDate}</p>
                 </div>
+                <button
+                    className="delete-button"
+                    onClick={() => deleteTaskButton(id)}
+                >
+                    Delete
+                </button>
             </div>
-            <p className="task__description">{description}</p>
         </task>
     )
 }

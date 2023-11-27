@@ -1,15 +1,23 @@
 import '../styles/pagesStyles/Profile.css'
 import ProfileStatistics from "../components/ProfileStatistics";
 import ProfilePersonal from "../components/ProfilePersonal";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import EditProfile from "../components/modals/EditProfile";
+import {Context} from "../index";
+import {observer} from "mobx-react-lite";
 
-const Profile = (props) => {
+const Profile = observer(() => {
     const [editModalVisible, setEditModalVisible] = useState(false)
-    // const {name, email, password} = props
-    const name = "Irek"
-    const email = "irekkkarimov@mail.ru"
-    const password = "strongPassword"
+
+    // Fetching user and setting its props to blanks
+    const {user} = useContext(Context)
+    const {name, email} = user.user
+    console.log(name)
+
+    // Testing variables
+    // const name = "Irek"
+    // const email = "irekkkarimov@mail.ru"
+    // const password = "strongPassword"
 
     return (
         <profile className="profile">
@@ -21,7 +29,7 @@ const Profile = (props) => {
                     <div onClick={() => setEditModalVisible(true)} className="profile__main__content__edit">
                         <img src="./images/edit_icon.png"/>
                     </div>
-                    <ProfilePersonal name={name} email={email} password={password} />
+                    <ProfilePersonal name={name} email={email} />
                     <div className="profile__main__content__hr"></div>
                     <ProfileStatistics/>
                     <div className="profile__main__content__exit">
@@ -34,10 +42,9 @@ const Profile = (props) => {
                 onHide={() => setEditModalVisible(false)}
                 Name={name}
                 Email={email}
-                Password={password}
             />
         </profile>
     )
-}
+})
 
 export default Profile

@@ -13,8 +13,7 @@ const TaskList = () => {
 
     useEffect(() => {
         fetchTasks(3)
-            .then(response => response.json())
-            .then(json => setTasks(json.rows))
+            .then(tasks => setTasks(tasks))
     }, [addModalVisible]);
 
     return (
@@ -62,7 +61,7 @@ const TaskList = () => {
                 </div>
                 <div className="task-list__tasks__content">
                     {tasks.map(item => (
-                        <Task id={item.id} name={item.name} description={item.description} date={item.deadline} show={selected === -1 ? true : item.category === selected} />
+                        <Task id={item.taskId} name={item.name} description={item.description} date={item.deadline} show={selected === -1 ? true : item.category === selected} />
                     ))}
                 </div>
             </div>

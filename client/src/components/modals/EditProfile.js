@@ -1,16 +1,25 @@
 import React, {useState} from "react";
+import {edit} from "../../http/userApi";
 
 
-const EditProfile = ({show, onHide, Name, Email, Password}) => {
-    const [email, setEmail] = useState(Email)
-    const [password, setPassword] = useState(Password)
+const EditProfile = ({show, onHide, Name, Email}) => {
+    const [name, setName] = useState(Name)
+    const [password, setPassword] = useState("")
 
     function submitProfileForm() {
-        window.alert("Submitted form")
+        let user = {
+            name: name,
+            password: password
+        }
+
+        edit(user)
+            .then(() => window.alert("Submitted form"))
+        onHide()
+        reset()
     }
 
     function reset() {
-        setEmail('')
+        setName('')
         setPassword('')
     }
 
@@ -33,7 +42,7 @@ const EditProfile = ({show, onHide, Name, Email, Password}) => {
                             type="text"
                             id="profile-form-email"
                             name="email"
-                            value={email}
+                            value={Email}
                             className="editProfile__form__profile-email-input modal__input"
                             placeholder="Type new email"
                             disabled
@@ -44,7 +53,8 @@ const EditProfile = ({show, onHide, Name, Email, Password}) => {
                         <input
                             type="text"
                             id="profile-form-name"
-                            value={Name}
+                            value={name}
+                            onChange={e => setName(e.target.value)}
                             className="editProfile__form__profile-name-input modal__input"
                             placeholder="Type profile name"
                         />
@@ -56,6 +66,7 @@ const EditProfile = ({show, onHide, Name, Email, Password}) => {
                             id="profile-form-email"
                             name="password"
                             value={password}
+                            onChange={e => setPassword(e.target.value)}
                             className="editProfile__form__profile-password-input modal__input"
                             placeholder="Type new password"
                         />
@@ -73,7 +84,7 @@ const EditProfile = ({show, onHide, Name, Email, Password}) => {
                             className="submit-modal"
                             onClick={submitProfileForm}
                         >
-                            Add
+                            Save
                         </button>
                     </div>
                 </div>
