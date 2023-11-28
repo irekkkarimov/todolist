@@ -5,9 +5,7 @@ export const createTask = async (task) => {
 }
 
 export const fetchTasks = async (id) => {
-    const {data} = await $host.get("api/task/getall?" + new URLSearchParams({
-        userId: id
-    }))
+    const {data} = await $authHost.get("api/task/getall")
     console.log(data)
     return data.tasks
 }

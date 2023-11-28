@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react"
 import '../styles/componentsStyles/Task.css'
-import {deleteTask} from "../http/taskApi";
-import alert from "bootstrap/js/src/alert";
+import {deleteTask} from "../http/taskApi"
 
 const Task = (props) => {
-    const {id, name, description, date, show} = props;
+    const {onDelete, id, name, description, date, show} = props;
     const [calculatedDate, expiration]  = calculateDeadline(date, name)
     const [divStyle, setDivStyle] = useState({})
     const [textStyle, setTextStyle] = useState({})
@@ -46,7 +45,8 @@ const Task = (props) => {
     }
 
     function deleteTaskButton(id) {
-        deleteTask(id).then(r => window.alert("Successfully deleted"))
+        deleteTask(id).then(() => onDelete())
+            .then(() => window.alert("Successfully deleted"))
     }
 
     useEffect(() => {

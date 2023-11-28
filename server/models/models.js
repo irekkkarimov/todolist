@@ -17,8 +17,12 @@ class User {
 
         return result.rows[0]
     }
-    async updateUser() {
-
+    async updateUser(id, name, password) {
+        console.log(id + " " + name + " " + password)
+        return await db.query(`UPDATE users
+            SET name = '${name}',
+                password = '${password}'
+            WHERE id = '${id}'`)
     }
     async deleteUser() {
 

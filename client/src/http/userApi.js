@@ -10,6 +10,7 @@ export const registration = async (user) => {
 export const login = async (user) => {
     const {data} = await $host.post("api/user/login", user)
     localStorage.setItem('token', data.token)
+    return data.success
 }
 
 export const check = async () => {

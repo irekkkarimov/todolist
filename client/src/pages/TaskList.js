@@ -5,6 +5,7 @@ import '../styles/pagesStyles/TaskList.css'
 import CreateTask from "../components/modals/CreateTask";
 import {fetchTasks} from "../http/taskApi";
 import {observer} from "mobx-react-lite";
+import {makeAutoObservable, makeObservable} from "mobx";
 
 const TaskList = () => {
     const [selected, setSelected] = useState(-1)
@@ -12,9 +13,19 @@ const TaskList = () => {
     const [tasks, setTasks] = useState([])
 
     useEffect(() => {
-        fetchTasks(3)
+        fetchTasks()
             .then(tasks => setTasks(tasks))
     }, [addModalVisible]);
+
+    function onTaskDelete(taskId) {
+        let newTasks = []
+        tasks.map(task => {
+            if (task.taskId != taskId)
+                newTasks.push(task)
+        })
+        setTasks(newTasks)
+        console.log(tasks)
+    }
 
     return (
         <tasklist className="task-list">
@@ -61,7 +72,13 @@ const TaskList = () => {
                 </div>
                 <div className="task-list__tasks__content">
                     {tasks.map(item => (
-                        <Task id={item.taskId} name={item.name} description={item.description} date={item.deadline} show={selected === -1 ? true : item.category === selected} />
+                        <Task id={item.taskId}
+                              name={item.name}
+                              description={item.description}
+                              date={item.deadline}
+                              show={selected === -1 ? true : item.category === selected}
+                              onDelete={() => onTaskDelete(item.taskId)}
+                        />
                     ))}
                 </div>
             </div>

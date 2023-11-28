@@ -11,7 +11,7 @@ const Profile = observer(() => {
 
     // Fetching user and setting its props to blanks
     const {user} = useContext(Context)
-    const {name, email} = user.user
+    const {name, email, url} = user.user
     console.log(name)
 
     // Testing variables
@@ -29,7 +29,7 @@ const Profile = observer(() => {
                     <div onClick={() => setEditModalVisible(true)} className="profile__main__content__edit">
                         <img src="./images/edit_icon.png"/>
                     </div>
-                    <ProfilePersonal name={name} email={email} />
+                    <ProfilePersonal name={name} email={email} url={url} />
                     <div className="profile__main__content__hr"></div>
                     <ProfileStatistics/>
                     <div className="profile__main__content__exit">

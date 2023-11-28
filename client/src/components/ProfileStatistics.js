@@ -14,9 +14,8 @@ const ProfileStatistics = () => {
 
     useEffect(() => {
         let tasks = []
-        fetchTasks(3)
-            .then(response => response.json())
-            .then(json => tasks = json)
+        fetchTasks()
+            .then(tasksReceived => tasks = tasksReceived)
             .then(() => {
                 let categoriesForTaskCountObject = {}
                 for (let i = 0; i < Categories.length; i++) {
