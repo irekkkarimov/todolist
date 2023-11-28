@@ -1,6 +1,6 @@
 # Server and Client for Todolist
 
-#Client Side
+# Client Side
 **Used technologies**\
 React\
 Axios\
@@ -8,7 +8,7 @@ Chart.js
 Mobx
 
 
-#Server Side (Not supported currently, project's server side is now on ASP.NET)
+# Server Side (Not supported currently, project's server side is now on ASP.NET)
 **Used technologies**\
 Express.js
 PostgreSQL
